@@ -14,7 +14,7 @@ const Button = ({
       type={type}
       className={cn(
         "w-full bg-red-500 text-white font-semibold py-3 px-4 rounded transition-colors duration-200",
-        "hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-1",
+        "hover:bg-red-600 hover:cursor-pointer focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-1",
         "disabled:bg-gray-400 disabled:cursor-not-allowed",
         className
       )}
