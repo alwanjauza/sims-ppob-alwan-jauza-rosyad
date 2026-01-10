@@ -9,6 +9,7 @@ const ModalTransaction = ({
   isOpen,
   type = "confirm",
   amount,
+  label = "Top Up",
   onConfirm,
   onClose,
 }) => {
@@ -41,7 +42,7 @@ const ModalTransaction = ({
           {type === "confirm" ? (
             <>
               <p className='text-gray-600 mb-2'>
-                Anda yakin untuk Top Up sebesar
+                Anda yakin untuk {label} sebesar
               </p>
               <h3 className='text-2xl font-bold text-gray-900'>
                 {formatRupiah(amount)} ?
