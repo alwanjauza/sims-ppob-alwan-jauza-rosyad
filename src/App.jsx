@@ -9,6 +9,7 @@ import DashboardPage from "./pages/Dashboard";
 import TopUpPage from "./pages/TopUp";
 import TransactionPage from "./pages/Transaction";
 import ProfilePage from "./pages/Profile";
+import PaymentPage from "./pages/Payment";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path='/topup' element={<TopUpPage />} />
             <Route path='/transaction' element={<TransactionPage />} />
             <Route path='/profile' element={<ProfilePage />} />
+            <Route path='/transaction/payment' element={<PaymentPage />} />
           </Route>
         </Route>
       </Routes>

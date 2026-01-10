@@ -7,10 +7,19 @@ import { getBanners, getServices } from "../redux/slices/informationSlice";
 import defaultProfile from "../assets/Profile Photo.png";
 import backgroundSaldo from "../assets/Background Saldo.png";
 import { formatRupiah } from "../utils/formatter";
+import ModalStatus from "../components/ui/ModalStatus";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [showBalance, setShowBalance] = useState(false);
+
+  const [modal, setModal] = useState({
+    isOpen: false,
+    message: "",
+    status: "failed",
+  });
 
   const { profile, loading: userLoading } = useSelector((state) => state.user);
   const { balance, loading: balanceLoading } = useSelector(
@@ -30,6 +39,10 @@ const Dashboard = () => {
     dispatch(getServices());
     dispatch(getBanners());
   }, [dispatch]);
+
+  const handleServiceClick = (service) => {
+    navigate("/transaction/payment", { state: { service } });
+  };
 
   if (isLoading) {
     return (
@@ -115,7 +128,7 @@ const Dashboard = () => {
           <div
             key={item.service_code}
             className='flex flex-col items-center gap-2 cursor-pointer group hover:scale-105 transition-transform duration-200'
-            onClick={() => alert(`Masuk ke menu ${item.service_name}`)}
+            onClick={() => handleServiceClick(item)}
           >
             <img
               src={item.service_icon}
@@ -146,6 +159,13 @@ const Dashboard = () => {
           ))}
         </div>
       </div>
+      <ModalStatus
+        isOpen={modal.isOpen}
+        status='failed'
+        message={modal.message}
+        buttonText='Tutup'
+        onClose={() => setModal({ ...modal, isOpen: false })}
+      />
     </div>
   );
 };
