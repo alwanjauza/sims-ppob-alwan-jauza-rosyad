@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { MdOutlineEmail, MdPerson, MdEdit } from "react-icons/md";
+import { MdPerson, MdEdit } from "react-icons/md";
 import {
   getProfile,
   updateProfile,
@@ -18,6 +18,7 @@ import Button from "../components/ui/Button";
 import Alert from "../components/ui/Alert";
 import ModalStatus from "../components/ui/ModalStatus";
 import defaultProfile from "../assets/Profile Photo.png";
+import { CiAt } from "react-icons/ci";
 
 const profileSchema = z.object({
   email: z.string(),
@@ -82,6 +83,16 @@ function ProfilePage() {
         status: "failed",
         message: result.payload || "Gagal update profile",
       });
+    }
+  };
+
+  const handleCancel = () => {
+    setIsEditing(false);
+    dispatch(clearUserError());
+
+    if (profile) {
+      setValue("first_name", profile.first_name);
+      setValue("last_name", profile.last_name);
     }
   };
 
@@ -175,7 +186,7 @@ function ProfilePage() {
         <Input
           {...register("email")}
           type='email'
-          icon={MdOutlineEmail}
+          icon={CiAt}
           disabled={true}
           className='bg-gray-50 cursor-not-allowed'
         />
@@ -205,9 +216,17 @@ function ProfilePage() {
 
       <div className='w-full mt-8 space-y-4'>
         {isEditing ? (
-          <Button onClick={handleSubmit(onSave)} isLoading={loading}>
-            Simpan
-          </Button>
+          <>
+            <Button onClick={handleSubmit(onSave)} isLoading={loading}>
+              Simpan
+            </Button>
+            <Button
+              onClick={handleCancel}
+              className='bg-white border border-red-500 text-red-500 hover:bg-red-50 focus:ring-red-200'
+            >
+              Batalkan
+            </Button>
+          </>
         ) : (
           <>
             <Button onClick={() => setIsEditing(true)}>Edit Profil</Button>

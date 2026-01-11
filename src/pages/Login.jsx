@@ -4,13 +4,14 @@ import { useNavigate, Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { MdOutlineEmail, MdLockOutline } from "react-icons/md";
+import { MdLockOutline } from "react-icons/md";
 
 import { clearError, loginUser } from "../redux/slices/authSlice";
 import Input from "../components/ui/Input";
 import Button from "../components/ui/Button";
 import Alert from "../components/ui/Alert";
 import logo from "../assets/Logo.png";
+import { CiAt } from "react-icons/ci";
 
 const loginSchema = z.object({
   email: z
@@ -68,7 +69,7 @@ function LoginPage() {
             {...register("email")}
             type='email'
             placeholder='masukkan email anda'
-            icon={MdOutlineEmail}
+            icon={CiAt}
             error={errors.email?.message}
           />
 
