@@ -109,7 +109,7 @@ const Dashboard = () => {
                 <p>Lihat Saldo</p>
                 <button
                   onClick={() => setShowBalance(!showBalance)}
-                  className='focus:outline-none hover:text-gray-200 transition'
+                  className='focus:outline-none hover:text-gray-200 hover:cursor-pointer transition'
                 >
                   {showBalance ? (
                     <MdVisibility size={18} />
