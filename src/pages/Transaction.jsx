@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProfile } from "../redux/slices/userSlice";
 import { getBalance, getHistory } from "../redux/slices/transactionSlice";
 import defaultProfile from "../assets/Profile Photo.png";
-import backgroundSaldo from "../assets/Background Saldo.png";
+import backgroundSaldo from "../assets/Background.png";
 import { formatRupiah, formatDate } from "../utils/formatter";
 
 function TransactionPage() {

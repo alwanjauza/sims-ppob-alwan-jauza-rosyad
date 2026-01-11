@@ -5,7 +5,7 @@ import { getProfile } from "../redux/slices/userSlice";
 import { getBalance } from "../redux/slices/transactionSlice";
 import { getBanners, getServices } from "../redux/slices/informationSlice";
 import defaultProfile from "../assets/Profile Photo.png";
-import backgroundSaldo from "../assets/Background Saldo.png";
+import backgroundSaldo from "../assets/Background.png";
 import { formatRupiah } from "../utils/formatter";
 import ModalStatus from "../components/ui/ModalStatus";
 import { useNavigate } from "react-router-dom";

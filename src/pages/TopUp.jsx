@@ -6,7 +6,7 @@ import { getBalance, topUp } from "../redux/slices/transactionSlice";
 import Button from "../components/ui/Button";
 import ModalTransaction from "../components/ui/ModalTransaction";
 import defaultProfile from "../assets/Profile Photo.png";
-import backgroundSaldo from "../assets/Background Saldo.png";
+import backgroundSaldo from "../assets/Background.png";
 import { formatRupiah } from "../utils/formatter";
 
 function TopUpPage() {

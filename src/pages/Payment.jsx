@@ -9,7 +9,7 @@ import { getBalance, doTransaction } from "../redux/slices/transactionSlice";
 import Button from "../components/ui/Button";
 import ModalStatus from "../components/ui/ModalStatus";
 import defaultProfile from "../assets/Profile Photo.png";
-import backgroundSaldo from "../assets/Background Saldo.png";
+import backgroundSaldo from "../assets/Background.png";
 import { formatRupiah } from "../utils/formatter";
 
 const PaymentPage = () => {
