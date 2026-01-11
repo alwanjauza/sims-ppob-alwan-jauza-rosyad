@@ -144,7 +144,7 @@ function ProfilePage() {
           onClick={() => fileInputRef.current.click()}
           className='absolute bottom-0 right-0 bg-white border border-gray-300 rounded-full p-2 shadow-sm hover:bg-gray-50 transition'
         >
-          <MdEdit size={16} className='text-black' />
+          <MdEdit size={16} className='text-black hover:cursor-pointer' />
         </button>
 
         <input
